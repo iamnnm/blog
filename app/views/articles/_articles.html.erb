@@ -1,0 +1,26 @@
+<% articles.each do |article| %>
+  <div class="mb-4" id="accordion" role="tablist">
+    <div class="d-flex flex-row">
+      <div class="w-100">
+        <div class="card shadow">
+          <div class="card-header">
+            <strong class="card-title" style="font-size: 25px"><%= link_to "#{article.title}", article_path(article.id) %></strong>
+          </div>
+          <div id="collapse<%= "#{article.id}" %>" class="collapse show" role="tabpanel" aria-labelledby="heading<%= "#{article.id}" %>">
+            <div class="card-body">
+              <p class="card-text"><%= simple_format(article.text) %></p>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <div class="float-left">Creator:</div>
+            <div class="float-right"><%= distance_of_time_in_words(Time.now, article.created_at, include_seconds: true) %></div>
+            <div class="clearfix"></div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
-    <title>Blog</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/head' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/notices' %>
+
+    <section class="container content q">
+      <div class="row">
+        <div class="col-9">
+          <%= yield %>
+        </div>
+        <div class="col-3">
+          <%= render 'shared/rightbar' %>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>
